@@ -2,10 +2,9 @@
 
 Branching and Release Management Strategy Guide
 
+[Git Commands Reference](./commands.md)
+
 ----
-
-
-[TOC]
 
 
 **Purpose of this Document**
