@@ -240,10 +240,7 @@ To https://github.com/df2k2/std.git
 
 
 
-
-
-
-## Creating a Tagged Release Branch and Merging to Master and Develop Branch
+## Create Release Branch, Set Version Tag, and Merge for Deployment
 
 **Goals:**
 
@@ -276,7 +273,7 @@ _Note: Here, bump-version.sh is a fictional shell script that changes some files
 ```
 
 
-**Step 2:** Checkout master branch and merge the release branch with the --no-ff switch
+**Step 2:** Checkout `master` branch and merge the release branch with the --no-ff switch
 
 `$ git checkout master`
 
@@ -312,7 +309,7 @@ To https://df2k2@github.com/df2k2/guides
    6021ec6..2a61e75  master -> master
 ```
 
-**Step 5:** Repeat same steps for merging except with the develop branch
+**Step 5:** Repeat same steps for merging except with the `develop` branch
 
 `$ git checkout develop`
 
@@ -352,7 +349,7 @@ To https://df2k2@github.com/df2k2/guides
 
 >`1.0.0`
 
-**View History for 1.0.0**
+View History for 1.0.0
 
 `$ git show 1.0.0`
 
@@ -386,9 +383,6 @@ Total 1 (delta 0), reused 0 (delta 0)
 To https://df2k2@github.com/df2k2/guides
  * [new tag]         1.0.0 -> 1.0.0
 ```
-
-
-
 
 
 
