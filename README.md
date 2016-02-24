@@ -386,4 +386,20 @@ To https://df2k2@github.com/df2k2/guides
 
 
 
+### View Release and Tag Archives on GitHub
+
+**View Releases**
+
+![Releases Link](./repo_tag.png)
+
+
+**View Release Archives**
+
+![Archived Releases](./tagged_archive.png)
+
+
+
+
+
+
 ## Managing a Hotfix
