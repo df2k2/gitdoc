@@ -4,6 +4,10 @@ Branching and Release Management Strategy Guide
 
 ----
 
+
+[TOC]
+
+
 **Purpose of this Document**
 
 The purpose of this document is to serve as an **official** reference guide for an efficient VCS branching and deployment model using git.
@@ -134,6 +138,119 @@ Additional labels for pre-release and build metadata are available as extensions
 **Examples:** 1.0.0-alpha, 1.0.0-alpha.1, 1.0.0-0.3.7, 1.0.0-x.7.z.92.
 
 
+****
+
+# Git Flow Usage Example
+
+
+## Developing a Feature Branch
+
+**Goals:**
+
+1. Create a new feature branch based off the latest code from the `develop` branch.
+2. Write code and apply commits to the new feature branch
+3. Merge finished feature branch into `develop` branch
+
+----
+
+**Step 1:** Create Feature Branch from `develop`
+
+Make sure you are on the `develop` branch and it is up-to-date with remote.
+
+`$ git checkout develop`
+
+>```
+Switched to branch 'develop'
+Your branch is behind 'origin/develop' by 1 commit, and can be fast-forwarded.
+(use "git pull" to update your local branch)
+```
+
+
+**Step 2:** Pull Latest Changes from remote
+
+`$ git pull`
+
+>```
+Updating 0e55abe..6a56d71
+Fast-forward
+develop.txt | 1 +
+1 file changed, 1 insertion(+)
+create mode 100644 develop.txt
+```
+
+**Step 3:** Create Feature Branch
+
+`$ git checkout -b feature/XX-5 develop`
+
+>```
+Switched to a new branch 'feature/XX-5'
+```
+
+**Step 4:** Add New Files and Commit with Messages
+
+```
+$ git add .\gitflow_guidelines.md
+$ git commit -m "XX-5 - Example guidelines file"
+```
+
+>```
+[feature/XX-5 c4a2d5c] XX-5 - Example guidelines file
+ 1 file changed, 5 insertions(+)
+ create mode 100644 gitflow_guidelines.md
+```
+
+**Step 5:** Checkout develop branch and merge with --no-ff
+
+`$ git checkout develop`
+
+>```
+Switched to branch 'develop'
+Your branch is up-to-date with 'origin/develop'.
+```
+
+`$ git merge --no-ff feature/XX-5`
+
+>```
+Updating c316181..c4a2d5c
+Fast-forward
+ gitflow_guidelines.md | 5 +++++
+ 1 file changed, 5 insertions(+)
+ create mode 100644 gitflow_guidelines.md
+```
+
+**Step 6:** Push updated develop branch to remote
+
+`$ git push origin develop`
+
+>```
+Counting objects: 3, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 343 bytes | 0 bytes/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+To https://github.com/df2k2/std.git
+   c316181..c4a2d5c  develop -> develop
+```
+
+**Step 7:** Remove feature branch
+
+`$ git branch -d feature/XX-5`
+
+>`Deleted branch feature/XX-5 (was c4a2d5c).`
 
 
 
+
+
+## Creating a Release Branch
+
+
+
+
+
+## Deploying Release Branch to Production
+
+
+
+
+## Managing a Hotfix
