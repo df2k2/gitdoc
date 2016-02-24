@@ -54,8 +54,8 @@ Git Flow involves five different branches
 | Master           | `master`                   |
 | Development      | `develop`                  |
 | Feature Branches | `feature/*`                |
-| Release Branches | `release/*` |
-| Hotfix Branches  | `hotfix/*`   |
+| Release Branches | `release/*` or `release-*` |
+| Hotfix Branches  | `hotfix/*` or `hotfix-*`   |
 
 
 
