@@ -114,8 +114,8 @@ Release branches support preparation of a new production release.  A `release` b
 | Branch           | Type       | Naming Convention | Lifetime  | Branched From | Merged To              |
 | :---             | :---       | :---:             | :---:     | :---:         | :---:                  |
 | Feature Branches | Supporting | `feature/*`       | Temporary | `develop`     | `develop`              |
-| Release Branches | Supporting | `release-*`       | Temporary | `develop`     | `develop` and `master` |
-| Hotfix Branches  | Supporting | `hotfix-*`        | Temporary | `master`      | `master` and `release` |
+| Release Branches | Supporting | `release/*` or `release-*`       | Temporary | `develop`     | `master` and `develop`  |
+| Hotfix Branches  | Supporting | `hotfix/*` `hotfix-*`        | Temporary | `master`      | `master` and `release` |
 
 
 
@@ -217,7 +217,14 @@ Fast-forward
  create mode 100644 gitflow_guidelines.md
 ```
 
-**Step 6:** Push updated develop branch to remote
+**Step 6:** Remove feature branch
+
+`$ git branch -d feature/XX-5`
+
+>`Deleted branch feature/XX-5 (was c4a2d5c).`
+
+
+**Step 7:** Push updated develop branch to remote
 
 `$ git push origin develop`
 
@@ -231,23 +238,156 @@ To https://github.com/df2k2/std.git
    c316181..c4a2d5c  develop -> develop
 ```
 
-**Step 7:** Remove feature branch
-
-`$ git branch -d feature/XX-5`
-
->`Deleted branch feature/XX-5 (was c4a2d5c).`
 
 
 
 
 
-## Creating a Release Branch
+## Creating a Tagged Release Branch and Merging to Master and Develop Branch
+
+**Goals:**
+
+- Create new `release` branch off `develop` and include version in branch name
+- Update version manually or with a script and commit with message for new version
+- Checkout `master`, merge `release-1.0.0`, add annotated `git tag`
+- Checkout `develop`, merge `release-1.0.0` into `develop` branch
+- Remove release branch
 
 
+**Step 1:** Create new `release` branch, apply version update, and commit with message.
+
+`$ git checkout -b release-1.0.0 develop`
+
+>`Switched to a new branch 'release-1.0.0'`
 
 
+`$ ./bump-version.sh 1.0.0`
 
-## Deploying Release Branch to Production
+>`Updated version to 1.0.0`
+
+_Note: Here, bump-version.sh is a fictional shell script that changes some files in the working copy to reflect the new version. (This can of course be a manual change—the point being that some files change.) Then, the bumped version number is committed._
+
+
+`$ git commit -a -m "Bumped to version 1.0.0"`
+
+>```
+[release-1.0.0 44293cf] Bumped to version 1.0.0
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+```
+
+
+**Step 2:** Checkout master branch and merge the release branch with the --no-ff switch
+
+`$ git checkout master`
+
+>`Switched to branch 'master'`
+
+`$ git merge --no-ff release-1.0.0`
+
+>```
+Merge made by recursive.
+ VERSION          |    1 +
+ sample/README.md |    7 +++++++
+ 2 files changed, 8 insertions(+), 0 deletions(-)
+ create mode 100644 VERSION
+ create mode 100644 sample/README.md
+```
+
+
+**Step 3:** Add version tag with `git tag -a`
+
+`$ git tag -a 1.0.0`
+
+**Step 4:** Push to remote master for deployment
+
+`$ git push origin master`
+
+>```
+Counting objects: 9, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (7/7), 11.82 KiB, done.
+Total 7 (delta 3), reused 0 (delta 0)
+To https://df2k2@github.com/df2k2/guides
+   6021ec6..2a61e75  master -> master
+```
+
+**Step 5:** Repeat same steps for merging except with the develop branch
+
+`$ git checkout develop`
+
+>`Switched to branch 'develop'`
+
+`$ git merge --no-ff release-1.0.0`
+
+>```
+Merge made by recursive.
+ VERSION |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+ create mode 100644 VERSION
+```
+
+**Step 6:** Delete release-1.0.0 branch
+
+`$ git branch -d release-1.0.0`
+
+>`Deleted branch release-1.0.0 (was 44293cf).`
+
+
+**Step 7:** Push updates to remote
+
+`$ git push origin develop`
+
+>```
+Counting objects: 1, done.
+Writing objects: 100% (1/1), 234 bytes, done.
+Total 1 (delta 0), reused 0 (delta 0)
+To https://df2k2@github.com/df2k2/guides
+   ab54a4d..d4fcf79  develop -> develop
+```
+
+**Optionally Verify Tag and Show Tag Commit History**
+
+`$ git tag`
+
+>`1.0.0`
+
+**View History for 1.0.0**
+
+`$ git show 1.0.0`
+
+>```
+tag 1.0.0
+Tagger: Chris S <df2002@gmail.com>
+Date:   Wed Feb 24 08:02:43 2016 -0500
+Updated to 1.0.0
+commit 2a61e754b91f293677de297d7f1a929b483172c2
+Merge: 6021ec6 44293cf
+Author: Chris S <df2002@gmail.com>
+Date:   Wed Feb 24 08:02:38 2016 -0500
+Merge branch 'release-1.0.0'
+```
+
+
+**Step 8:** Push tag to remote
+
+Push all tags with:
+
+`$ git push origin --tags`
+
+Push single tag with:
+
+`$ git push origin 1.0.0`
+
+>```
+Counting objects: 1, done.
+Writing objects: 100% (1/1), 161 bytes, done.
+Total 1 (delta 0), reused 0 (delta 0)
+To https://df2k2@github.com/df2k2/guides
+ * [new tag]         1.0.0 -> 1.0.0
+```
+
+
 
 
 
