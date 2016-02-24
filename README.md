@@ -81,7 +81,7 @@ The develop branch is where the more general, shared development and bug-fixes c
 
 Feature branches are used to develop new features for the next upcoming or scheduled distant future release.  When tagged with a future release version within a project management system, developers and clients have a common understanding of what is expected to be done for a release.
 
-A feature branch should only exist while the feature is in development and it will ultimately be merged into `develop` or removed if it was just for experimenting.`
+A feature branch should only exist while the feature is in development and it will ultimately be merged into `develop` or removed if it was just for experimenting.
 
 New feature branches are created off of the `develop` branch.  Once the feature branch has been merged into `develop`, further updates to the code can be commited directly in the `develop` branch.
 
