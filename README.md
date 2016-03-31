@@ -9,7 +9,7 @@ Branching and Release Management Strategy Guide
 
 **Purpose of this Document**
 
-The purpose of this document is to serve as an **official** reference guide for an efficient VCS branching and deployment model using git.
+The purpose of this document is to serve as a personal reference guide for an efficient VCS branching and deployment model using git.
 
 The strategy described in this document also serves as a foundation for comparison when proposing changes to improve or alter the process per requirements.
 
