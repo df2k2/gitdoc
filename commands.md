@@ -1,8 +1,13 @@
 # Git Commands
 
-===============
+**Cheatsheet of Git Commands**
+
+
+--------
+
 
 ### Index
+
 * [Set Up](#setup)
 * [Configuration Files](#configuration-files)
 * [Create](#create)
@@ -57,8 +62,9 @@ $ git config --global color.ui auto
 $ git config --global core.editor vi
 ```
 
-<hr>
-##Configuration Files
+------
+
+## Configuration Files
 
 ##### Repository specific configuration file [--local]:
 ```
@@ -166,8 +172,10 @@ git stash pop
 ```
 git stash apply
 ```
-<hr>
-##Search
+
+------
+
+## Search
 
 ##### A text search on all files in the directory:
 ```
@@ -368,11 +376,12 @@ $ git rm <resolved-file>
 ```
 
 ##### Squashing commits:
+
 ```
 $ git rebase -i <commit-just-before-first>
 ```
 
-Now replace this,
+*Now replace this,*
 
 ```
 pick <commit_id>
@@ -380,7 +389,7 @@ pick <commit_id2>
 pick <commit_id3>
 ```
 
-to this,
+*to this,*
 
 ```
 pick <commit_id>
@@ -433,9 +442,11 @@ $ git reset --keep <commit>
 ```
 
 ##### Remove files that were accidentally committed before they were added to .gitignore
+
 ```
 $ git rm -r --cached .
 $ git add .
 $ git commit -m "remove xyz file"
 ```
-<hr>
+
+-----
