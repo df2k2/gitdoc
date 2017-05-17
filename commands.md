@@ -1,7 +1,8 @@
 # Git Commands
 
 ===============
-###Index
+
+### Index
 * [Set Up](#setup)
 * [Configuration Files](#configuration-files)
 * [Create](#create)
@@ -13,8 +14,9 @@
 * [Merge & Rebase](#merge--rebase)
 * [Undo](#undo)
 
-<hr>
-##Setup
+------
+
+## Setup
 
 ##### Show current configuration:
 ```
@@ -73,8 +75,9 @@ $ git config --global core.editor vi
 /etc/gitconfig
 ```
 
-<hr>
-##Create
+------
+
+## Create
 
 ##### Clone an existing repository:
 
@@ -96,8 +99,10 @@ $ git clone http://domain.com/user/repo.git
 ```
 $ git init
 ```
-<hr>
-##Local Changes
+
+------
+
+## Local Changes
 
 ##### Changes in working directory:
 ```
@@ -174,8 +179,9 @@ $ git grep "Hello"
 $ git grep "Hello" v2.5
 ```
 
-<hr>
-###Commit History
+-------
+
+### Commit History
 
 ##### Show all commits, starting with newest (it'll show the hash, author information, date of commit and title of the commit):
 ```
@@ -206,8 +212,10 @@ $ git log --oneline <origin/master>..<remote/master> --left-right
 ```
 $ git blame <file>
 ```
-<hr>
-##Branches & Tags
+
+-------
+
+## Branches & Tags
 
 ##### List all local branches:
 ```
@@ -245,7 +253,8 @@ $ git branch -d <branch>
 ```
 
 ##### Force delete a local branch:
-<em><sub>You will lose unmerged changes!</sub></em>
+
+_<sub>You will lose unmerged changes!</sub>_
 
 ```
 $ git branch -D <branch>
@@ -260,8 +269,10 @@ $ git tag <tag-name>
 ```
 $ git tag -a <tag-name>
 ```
-<hr>
-##Update & Publish
+
+-----
+
+## Update & Publish
 
 ##### List all current configured remotes:
 ```
@@ -314,15 +325,18 @@ git push <remote> --delete <branch> (since Git v1.7.0)
 ```
 $ git push --tags
 ```
-<hr>
-##Merge & Rebase
+-----
 
-##### Merge <branch> into your current HEAD:
+## Merge & Rebase
+
+##### Merge **&lt;branch>** into your current HEAD:
+
 ```
 $ git merge <branch>
 ```
 
 ##### Rebase your current HEAD onto &lt;branch&gt;:<br>
+
 <em><sub>Don't rebase published commit!</sub></em>
 
 ```
@@ -373,8 +387,10 @@ pick <commit_id>
 squash <commit_id2>
 squash <commit_id3>
 ```
-<hr>
-##Undo
+
+-------
+
+## Undo
 
 ##### Discard all local changes in your working directory:
 ```
