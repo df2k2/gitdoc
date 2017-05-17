@@ -354,12 +354,12 @@ View History for 1.0.0
 
 > <pre>
 > tag 1.0.0
-> Tagger: Chris S <df2002@gmail.com>
+> Tagger: Chris S &lt;dfxxxx@mail.com>
 > Date:   Wed Feb 24 08:02:43 2016 -0500
 > Updated to 1.0.0
 > commit 2a61e754b91f293677de297d7f1a929b483172c2
 > Merge: 6021ec6 44293cf
-> Author: Chris S <df2002@gmail.com>
+> Author: Chris S &lt;dfxxxx@mail.com>
 > Date:   Wed Feb 24 08:02:38 2016 -0500
 > Merge branch 'release-1.0.0'
 > </pre>
@@ -375,13 +375,13 @@ Push single tag with:
 
 `$ git push origin 1.0.0`
 
->```
-Counting objects: 1, done.
-Writing objects: 100% (1/1), 161 bytes, done.
-Total 1 (delta 0), reused 0 (delta 0)
-To https://df2k2@github.com/df2k2/guides
- * [new tag]         1.0.0 -> 1.0.0
-```
+> <pre>
+> Counting objects: 1, done.
+> Writing objects: 100% (1/1), 161 bytes, done.
+> Total 1 (delta 0), reused 0 (delta 0)
+> To https://df2k2@github.com/df2k2/guides
+>  * [new tag]         1.0.0 -> 1.0.0
+> </pre>
 
 
 
