@@ -192,29 +192,29 @@ Make sure you are on the `develop` branch and it is up-to-date with remote.
 > </pre>
 
 > <pre>
-[feature/XX-5 c4a2d5c] XX-5 - Example guidelines file
- 1 file changed, 5 insertions(+)
- create mode 100644 gitflow_guidelines.md
+> [feature/XX-5 c4a2d5c] XX-5 - Example guidelines file
+> 1 file changed, 5 insertions(+)
+> create mode 100644 gitflow_guidelines.md
 > </pre>
 
 **Step 5:** Checkout develop branch and merge with --no-ff
 
 `$ git checkout develop`
 
->```
-Switched to branch 'develop'
-Your branch is up-to-date with 'origin/develop'.
-```
+> <pre>
+> Switched to branch 'develop'
+> Your branch is up-to-date with 'origin/develop'.
+> </pre>
 
 `$ git merge --no-ff feature/XX-5`
 
->```
-Updating c316181..c4a2d5c
-Fast-forward
- gitflow_guidelines.md | 5 +++++
- 1 file changed, 5 insertions(+)
- create mode 100644 gitflow_guidelines.md
-```
+> <pre>
+> Updating c316181..c4a2d5c
+> Fast-forward
+> gitflow_guidelines.md | 5 +++++
+> 1 file changed, 5 insertions(+)
+> create mode 100644 gitflow_guidelines.md
+> </pre>
 
 **Step 6:** Remove feature branch
 
@@ -227,15 +227,15 @@ Fast-forward
 
 `$ git push origin develop`
 
->```
-Counting objects: 3, done.
-Delta compression using up to 2 threads.
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 343 bytes | 0 bytes/s, done.
-Total 3 (delta 1), reused 0 (delta 0)
-To https://github.com/df2k2/std.git
-   c316181..c4a2d5c  develop -> develop
-```
+> <pre>
+> Counting objects: 3, done.
+> Delta compression using up to 2 threads.
+> Compressing objects: 100% (3/3), done.
+> Writing objects: 100% (3/3), 343 bytes | 0 bytes/s, done.
+> Total 3 (delta 1), reused 0 (delta 0)
+> To https://github.com/df2k2/std.git
+>    c316181..c4a2d5c  develop -> develop
+> </pre>
 
 
 
@@ -266,10 +266,10 @@ _Note: Here, bump-version.sh is a fictional shell script that changes some files
 
 `$ git commit -a -m "Bumped to version 1.0.0"`
 
->```
-[release-1.0.0 44293cf] Bumped to version 1.0.0
- 1 files changed, 1 insertions(+), 1 deletions(-)
-```
+> <pre>
+> [release-1.0.0 44293cf] Bumped to version 1.0.0
+>  1 files changed, 1 insertions(+), 1 deletions(-)
+> </pre>
 
 
 **Step 2:** Checkout `master` branch and merge the release branch with the --no-ff switch
@@ -280,14 +280,14 @@ _Note: Here, bump-version.sh is a fictional shell script that changes some files
 
 `$ git merge --no-ff release-1.0.0`
 
->```
-Merge made by recursive.
- VERSION          |    1 +
- sample/README.md |    7 +++++++
- 2 files changed, 8 insertions(+), 0 deletions(-)
- create mode 100644 VERSION
- create mode 100644 sample/README.md
-```
+> <pre>
+> Merge made by recursive.
+>  VERSION          |    1 +
+>  sample/README.md |    7 +++++++
+>  2 files changed, 8 insertions(+), 0 deletions(-)
+>  create mode 100644 VERSION
+>  create mode 100644 sample/README.md
+> </pre>
 
 
 **Step 3:** Add version tag with `git tag -a`
@@ -298,15 +298,15 @@ Merge made by recursive.
 
 `$ git push origin master`
 
->```
-Counting objects: 9, done.
-Delta compression using up to 2 threads.
-Compressing objects: 100% (6/6), done.
-Writing objects: 100% (7/7), 11.82 KiB, done.
-Total 7 (delta 3), reused 0 (delta 0)
-To https://df2k2@github.com/df2k2/guides
-   6021ec6..2a61e75  master -> master
-```
+> <pre>
+> Counting objects: 9, done.
+> Delta compression using up to 2 threads.
+> Compressing objects: 100% (6/6), done.
+> Writing objects: 100% (7/7), 11.82 KiB, done.
+> Total 7 (delta 3), reused 0 (delta 0)
+> To https://df2k2@github.com/df2k2/guides
+>    6021ec6..2a61e75  master -> master
+> </pre>
 
 **Step 5:** Repeat same steps for merging except with the `develop` branch
 
@@ -316,12 +316,12 @@ To https://df2k2@github.com/df2k2/guides
 
 `$ git merge --no-ff release-1.0.0`
 
->```
-Merge made by recursive.
- VERSION |    1 +
- 1 files changed, 1 insertions(+), 0 deletions(-)
- create mode 100644 VERSION
-```
+> <pre>
+> Merge made by recursive.
+>  VERSION |    1 +
+>  1 files changed, 1 insertions(+), 0 deletions(-)
+> create mode 100644 VERSION
+> </pre>
 
 **Step 6:** Delete release-1.0.0 branch
 
@@ -334,13 +334,13 @@ Merge made by recursive.
 
 `$ git push origin develop`
 
->```
-Counting objects: 1, done.
-Writing objects: 100% (1/1), 234 bytes, done.
-Total 1 (delta 0), reused 0 (delta 0)
-To https://df2k2@github.com/df2k2/guides
-   ab54a4d..d4fcf79  develop -> develop
-```
+> <pre>
+> Counting objects: 1, done.
+> Writing objects: 100% (1/1), 234 bytes, done.
+> Total 1 (delta 0), reused 0 (delta 0)
+> To https://df2k2@github.com/df2k2/guides
+>    ab54a4d..d4fcf79  develop -> develop
+> </pre>
 
 **Optionally Verify Tag and Show Tag Commit History**
 
@@ -352,17 +352,17 @@ View History for 1.0.0
 
 `$ git show 1.0.0`
 
->```
-tag 1.0.0
-Tagger: Chris S <df2002@gmail.com>
-Date:   Wed Feb 24 08:02:43 2016 -0500
-Updated to 1.0.0
-commit 2a61e754b91f293677de297d7f1a929b483172c2
-Merge: 6021ec6 44293cf
-Author: Chris S <df2002@gmail.com>
-Date:   Wed Feb 24 08:02:38 2016 -0500
-Merge branch 'release-1.0.0'
-```
+> <pre>
+> tag 1.0.0
+> Tagger: Chris S <df2002@gmail.com>
+> Date:   Wed Feb 24 08:02:43 2016 -0500
+> Updated to 1.0.0
+> commit 2a61e754b91f293677de297d7f1a929b483172c2
+> Merge: 6021ec6 44293cf
+> Author: Chris S <df2002@gmail.com>
+> Date:   Wed Feb 24 08:02:38 2016 -0500
+> Merge branch 'release-1.0.0'
+> </pre>
 
 
 **Step 8:** Push tag to remote
