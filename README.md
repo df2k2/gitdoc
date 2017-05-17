@@ -158,10 +158,11 @@ Make sure you are on the `develop` branch and it is up-to-date with remote.
 
 `$ git checkout develop`
 
->```
-Switched to branch 'develop'
-Your branch is behind 'origin/develop' by 1 commit, and can be fast-forwarded.
-(use "git pull" to update your local branch)
+
+> ```
+    Switched to branch 'develop'
+    Your branch is behind 'origin/develop' by 1 commit, and can be fast-forwarded.
+    (use "git pull" to update your local branch)
 ```
 
 
