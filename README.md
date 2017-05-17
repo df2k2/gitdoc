@@ -159,45 +159,43 @@ Make sure you are on the `develop` branch and it is up-to-date with remote.
 `$ git checkout develop`
 
 
-> ```
-    Switched to branch 'develop'
-    Your branch is behind 'origin/develop' by 1 commit, and can be fast-forwarded.
-    (use "git pull" to update your local branch)
-```
+> <pre>
+> Switched to branch 'develop'
+> Your branch is behind 'origin/develop' by 1 commit, and can be fast-forwarded.
+> (use "git pull" to update your local branch)
+> </pre>
 
 
 **Step 2:** Pull Latest Changes from remote
 
 `$ git pull`
 
->```
-Updating 0e55abe..6a56d71
-Fast-forward
-develop.txt | 1 +
-1 file changed, 1 insertion(+)
-create mode 100644 develop.txt
-```
+> <pre>
+> Updating 0e55abe..6a56d71
+> Fast-forward
+> develop.txt | 1 +
+> 1 file changed, 1 insertion(+)
+> create mode 100644 develop.txt
+> </pre>
 
 **Step 3:** Create Feature Branch
 
 `$ git checkout -b feature/XX-5 develop`
 
->```
-Switched to a new branch 'feature/XX-5'
-```
+>`Switched to a new branch 'feature/XX-5'`
 
 **Step 4:** Add New Files and Commit with Messages
 
-```
-$ git add .\gitflow_guidelines.md
-$ git commit -m "XX-5 - Example guidelines file"
-```
+> <pre>
+> $ git add .\gitflow_guidelines.md
+> $ git commit -m "XX-5 - Example guidelines file"
+> </pre>
 
->```
+> <pre>
 [feature/XX-5 c4a2d5c] XX-5 - Example guidelines file
  1 file changed, 5 insertions(+)
  create mode 100644 gitflow_guidelines.md
-```
+> </pre>
 
 **Step 5:** Checkout develop branch and merge with --no-ff
 
